@@ -1,0 +1,22 @@
+{% extends 'general.html' %}
+{% block title %} 
+ Cambiar contraseña
+ {% endblock %}
+
+{% block content %}
+
+    <h1>Cabmiar Contraseña</h1>
+    <br>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" class="btn btn-primary">Cambiar</button>
+            
+            <a href="{% url 'editarUsuario' %}" class="btn btn-dark">Volver</a>
+        </form>
+        
+    </table>
+    
+    
+{% endblock %}

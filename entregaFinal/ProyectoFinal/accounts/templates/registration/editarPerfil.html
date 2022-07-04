@@ -1,0 +1,31 @@
+{% extends 'general.html' %}
+{% block title %} 
+Editar perfil
+{% endblock %}
+
+{% block content %}
+
+    <h1>Editar Perfil</h1>
+    <br>
+    
+    <br>
+ 
+    <table>
+         {% if  user.perfil.imagen %}
+        <img src=" {{ user.perfil.imagen.url }}" alt="" width="100px" >
+        {% endif %} 
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+            
+            <button type="submit" class="btn btn-primary">Editar</button>           
+            <a href="{% url 'home' %}" class="btn btn-dark">Volver</a>
+            <br>
+            
+        </form>
+     
+        
+    </table>
+    
+    
+{% endblock %}

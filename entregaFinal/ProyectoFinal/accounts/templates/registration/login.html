@@ -1,0 +1,22 @@
+{% extends 'general.html' %}
+{% block title %} 
+Iniciar Sesion
+{% endblock %}
+
+{% block content %}
+
+    <h1>Iniciar Sesion</h1>
+    <br>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" class="btn btn-primary">Iniciar</button>
+            
+            <a href="{% url 'home' %}" class="btn btn-dark">Volver</a>
+        </form>
+        
+    </table>
+    
+    
+{% endblock %}

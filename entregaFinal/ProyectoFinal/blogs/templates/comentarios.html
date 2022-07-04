@@ -1,0 +1,25 @@
+{% extends 'general.html' %}
+{% block title %} 
+Crea tu post! 
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    <h1>Comenta!</h1>
+    <br/>
+    <table>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" class="btn btn-primary">Publicar</button>
+            <a href="{% url 'home' %}" class="btn btn-danger">Cancelar</a>
+        </form>
+    
+
+    </table>
+    
+{% else %}
+    Inicie sesion para poder ver el contenido!
+{% endif %}        
+{% endblock %}

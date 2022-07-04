@@ -1,0 +1,21 @@
+{% extends 'general.html' %}
+
+{% block title %} 
+        Blogux-Home 
+{% endblock %}
+{% block content %}
+    <h1>Home</h1>
+    <ul>
+        {% if user.is_authenticated %}
+        <a href="{% url 'agregarPost' %}" class="btn btn-info">Crear post</a>
+        {% endif %}
+
+        {% for n in object_list %}
+            <li>{{ n.titulo }} -- {{ n.subtitulo }} -- {{ n.autor.first_name }} {{ n.autor.last_name }} -- {{ n.fecha }}</li>
+            <a href="{% url 'postDetallado' n.pk %}"> Ver mas...</a>
+        {% endfor %}
+
+    </ul>
+    
+        
+{% endblock %}

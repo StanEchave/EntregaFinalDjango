@@ -1,0 +1,22 @@
+{% extends 'general.html' %}
+{% block title %} 
+Registrarse
+{% endblock %}
+
+{% block content %}
+
+    <h1>Registrarse</h1>
+    <br>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            
+            <a href="{% url 'home' %}" class="btn btn-dark">Volver</a>
+        </form>
+        
+    </table>
+    
+    
+{% endblock %}

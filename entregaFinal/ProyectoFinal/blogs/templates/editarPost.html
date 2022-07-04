@@ -1,0 +1,27 @@
+{% extends 'general.html' %}
+{% block title %} 
+Edicion de Post
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.id == post.autor.id %}  
+    <h1>Edita tu post!</h1>
+    <br>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" class="btn btn-primary">Editar</button>
+            
+            <a href="{% url 'home' %}" class="btn btn-danger">Cancelar</a>
+        </form>
+    {% else %}
+        No puede modificar este post ya que no es de su autoria
+    {% endif %}      
+    </table>
+{% else %}
+    Inicie sesion para poder ver el contenido!
+{% endif %}    
+    
+{% endblock %}

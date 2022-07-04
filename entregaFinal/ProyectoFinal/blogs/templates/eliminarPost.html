@@ -1,0 +1,31 @@
+{% extends 'general.html' %}
+{% block title %} 
+Edicion de Post
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.id == post.autor.id %}
+
+    <h1>Eliminar post!</h1>
+    <br>
+    <h2>Esta seguro de eliminar {{ post.titulo}} ??</h2>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            
+            <a href="{% url 'home' %}" class="btn btn-primary">Cancelar</a>
+        </form>
+        
+    </table>
+    {% else %}
+        No puede modificar este post ya que no es de su autoria
+    {% endif %}
+    
+{% else %}
+    Inicie sesion para poder ver el contenido!
+{% endif %}
+    
+    
+{% endblock %}
